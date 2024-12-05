@@ -4,6 +4,8 @@ Welcome to the **RAG Chat System**!
 This project is a **Retrieval-Augmented Generation (RAG)** chat application built with Streamlit and OpenAI's GPT models. 
 It allows you to query a datastore of documents and get contextually relevant responses, with sources provided when available.
 
+![Screenshot](https://github.com/ahmedashraffcih/rag-chat-system/blob/main/assets/Screenshot%202024-12-05%20193013.png)
+
 ## Features
 
 - **Regenerate Data Store**: Easily refresh the document datastore.
@@ -74,3 +76,7 @@ It allows you to query a datastore of documents and get contextually relevant re
 
 3. Download Chat History:
     - Click on "Download Chat History" to save the conversation.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
