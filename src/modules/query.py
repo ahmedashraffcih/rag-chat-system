@@ -1,9 +1,9 @@
 from langchain_community.embeddings import OpenAIEmbeddings
-from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from src.utils.constants import *
+
 
 def query_data(query_text):
     # Prepare the DB

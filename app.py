@@ -23,23 +23,31 @@ with st.sidebar:
         with st.spinner("Regenerating data store..."):
             generate_data_store()
         st.success("Data store regenerated successfully!")
-    
+
     st.subheader("Model Settings")
-    st.slider("Response Temperature", 0.0, 1.0, st.session_state.model_settings["temperature"], key="temperature_slider")
+    st.slider(
+        "Response Temperature",
+        0.0,
+        1.0,
+        st.session_state.model_settings["temperature"],
+        key="temperature_slider",
+    )
     if st.button("Reset Chat"):
         st.session_state.messages = []
         st.info("Chat reset successfully!")
 
     st.markdown("---")
     st.markdown("**About this App:**")
-    st.write("This is a Retrieval-Augmented Generation (RAG) chat system. Enter a query and get contextual responses sourced from your data.")
+    st.write(
+        "This is a Retrieval-Augmented Generation (RAG) chat system. Enter a query and get contextual responses sourced from your data."
+    )
 
 st.write("💬 Start a conversation below:")
 user_input = st.text_input("Your query:", key="query_input")
 
 if user_input:
     st.session_state.messages.append({"role": "user", "content": user_input})
-    
+
     with st.spinner("Thinking..."):
         time.sleep(1)
         response = query_data(user_input)
@@ -62,7 +70,10 @@ for message in st.session_state.messages:
 if st.session_state.messages:
     with st.expander("💾 Download Chat History"):
         chat_history = "\n".join(
-            [f"{msg['role'].capitalize()}: {msg['content']}" for msg in st.session_state.messages]
+            [
+                f"{msg['role'].capitalize()}: {msg['content']}"
+                for msg in st.session_state.messages
+            ]
         )
         st.download_button(
             label="Download Chat History",

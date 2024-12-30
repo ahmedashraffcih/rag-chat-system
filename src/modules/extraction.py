@@ -10,10 +10,12 @@ from src.utils.constants import *
 
 # openai.api_key = os.environ['OPENAI_API_KEY']
 
+
 def load_documents():
     loader = DirectoryLoader(DATA_PATH, glob="*.md")
     documents = loader.load()
     return documents
+
 
 def split_text(documents: list[Document]):
     text_splitter = RecursiveCharacterTextSplitter(
@@ -31,10 +33,12 @@ def split_text(documents: list[Document]):
 
     return chunks
 
+
 def generate_data_store():
     documents = load_documents()
     chunks = split_text(documents)
     save_to_chroma(chunks)
+
 
 def save_to_chroma(chunks: list[Document]):
     # Clear out the database first.
